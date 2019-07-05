@@ -26,42 +26,57 @@ using namespace std;
 
     }
 
+    matrix::matrix( const matrix &arrayToCopy )
+        :array_size( arrayToCopy.array_size )
+    {
+        cout << "arrayToCopy.array_size= "<<arrayToCopy.array_size << endl;
+
+        /*ptr = new int[ array_size ];
+
+        for( int i = 0; i < array_size; ++i )
+        {
+            ptr[ i ] = arrayToCopy.ptr[ i ];
+        }
+        */
+
+    }
+
+
     int &matrix::operator ()( int x, int y )
     {
-        int temporal[ size_row ][ size_column ];
-        int k = 0;
+        if( x < 0 or y < 0 or ( x == 0 and y == 0 ) )
+            throw out_of_range( "Subscript out of range" );
 
-        for( int i = 0; i < size_row; ++i )
-            for( int j = 0; j < size_column; ++j )
-            {
-                temporal[ i ][ j ] = ptr[ k ];
-                k++;
-            }
+        return ptr[ x * size_row + y ];
+    }
 
-        returnValue = temporal[ x ][ y ];
+    const int &matrix::operator()( int x, int y ) const
+    {
 
+        if( x < 0 or y < 0 or ( x == 0 and y == 0 ) )
+            throw out_of_range( "Subscript out of range" );
 
-
-        return returnValue;
+        return ptr[ x * size_row + y ];
     }
 
      ostream &operator<<(ostream &output, const matrix &a)
        {
 
+            int k = 0;
+            for( int i = 0; i < a.size_row; ++i)
+            {
+                for ( int j = 0; j < a.size_column; ++j)
+                {
+                    //output << setw( 6 ) << a.ptr[ k ];
+                    output << "a.ptr[ k ] = " << a.ptr[ k ];
+                    k++;
 
-          int i;
+                }
+                output << endl;
+            }
 
 
-          for (i = 0; i < a.array_size; ++i)
-          {
-            output << setw(12) << a.ptr[i];
 
-            if ((i + 1) % a.size_column == 0)
-              output << endl;
-          } // end for
-
-          if (i % a.size_column != 0)
-            output << endl;
 
           return output;
     }
@@ -109,66 +124,29 @@ using namespace std;
         return *this; //Allows x = y = z
     }
 
-
-
-
-/*
-    Array::Array( const Array &arrayToCopy )
-        :size( arrayToCopy.size )
+    bool matrix::operator ==( const matrix &right ) const
     {
-        ptr = new int[ size ];
-
-        for( int i = 0; i < size; ++i )
-        {
-            ptr[ i ] = arrayToCopy.ptr[ i ];
-        }
-
-    }
-
-
-
-    int Array::getSize() const
-    {
-        return this->size;
-    }
-// const Array& Array::operator = ( const Array &right );
-
-
-    bool Array::operator ==( const Array &right ) const
-    {
-        if( size != right.size )
+        if( array_size != right.array_size )
             return false;
 
-        for( int i = 0; i < size; ++i )
+        for( int i = 0; i < array_size; ++i )
             if( ptr[ i ] != right.ptr[ i ] )
                 return false;
         return true;
     }
 
-    // reference return creates a modifiable lvalue
-    int &Array::operator []( int subscript )
+    bool matrix::operator !=( const matrix &right ) const
     {
-        cout << "Now in type 1" << endl;
-        if( subscript < 0 or subscript >= size )
-            throw out_of_range("Subscript out of range");
+        if( array_size == right.array_size )
+        {
+            return false;
+        }
 
-        return ptr[ subscript ]; //reference return
+        for( int i = 0; i < array_size; ++i )
+            if( ptr[ i ] != right.ptr[ i ] )
+                return true;
 
+
+        return true;
     }
 
-    int Array::operator[]( int subscript ) const
-    {
-        cout << "Now in type 2" << endl;
-        if( subscript < 0 or subscript >= size )
-            throw out_of_range("Subscript out of range");
-
-        return ptr[ subscript ]; // value return
-    }
-
-
-
-
-
-
-
-*/
