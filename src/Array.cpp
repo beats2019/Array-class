@@ -41,7 +41,7 @@ using namespace std;
     {
         return this->size;
     }
-
+// const Array& Array::operator = ( const Array &right );
     const Array &Array:: operator = ( const Array &right )
     {
         if( &right != this )
@@ -79,6 +79,7 @@ using namespace std;
     // reference return creates a modifiable lvalue
     int &Array::operator []( int subscript )
     {
+        cout << "Now in type 1" << endl;
         if( subscript < 0 or subscript >= size )
             throw out_of_range("Subscript out of range");
 
@@ -88,6 +89,7 @@ using namespace std;
 
     int Array::operator[]( int subscript ) const
     {
+        cout << "Now in type 2" << endl;
         if( subscript < 0 or subscript >= size )
             throw out_of_range("Subscript out of range");
 

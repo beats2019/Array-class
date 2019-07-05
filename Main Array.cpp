@@ -13,22 +13,10 @@ using namespace std;
     {
         Array integers1( 23 );
         Array integers2;
+       const Array integers3;
 
-        cout << "Size of Array integers1 is "
-        << integers1.getSize();
+        cout << integers3[ 1 ];
 
-        cout << endl << endl;
-
-        cout <<"\nArray after initialization:\n"
-        << integers1;
-
-        cout << "Size of Array integers2 is "
-        << integers2.getSize();
-
-        cout << endl << endl;
-
-        cout <<"\nArray after initialization:\n"
-        << integers2;
 
 
 

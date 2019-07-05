@@ -18,7 +18,7 @@ class Array
             bool operator ==( const Array &right ) const;
             int & operator []( int subscript );
             int operator[]( int subscript ) const;
-
+// function declaration :  return_type ClassName :: FunctionName(parameters);
 
         private:
             int size;
