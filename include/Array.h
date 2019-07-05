@@ -4,25 +4,35 @@
 using namespace std;
 
 
-class Array
+class matrix
 {
-    friend ostream &operator<<( ostream &, const Array & );
-    friend istream &operator>>( istream &, Array & );
+
+    friend ostream &operator<<( ostream &, const matrix & );
+    friend istream &operator>>( istream &, matrix & );
 
         public:
-            Array( int = 10 );
+            explicit matrix( int  , int  );
+            int &operator ()( int , int );
+            ~matrix();
+            const matrix & operator = ( const matrix & );
+
+            /*
             Array( const Array &);
-            ~Array();
-            int getSize() const;
-            const Array & operator = ( const Array &right );
+
+             int getSize() const;
+
             bool operator ==( const Array &right ) const;
             int & operator []( int subscript );
             int operator[]( int subscript ) const;
+            */
 // function declaration :  return_type ClassName :: FunctionName(parameters);
 
         private:
-            int size;
+            int size_row;
+            int size_column;
+            int array_size;
             int *ptr;
+            int returnValue;
 };
 
 #endif // ARRAY_H

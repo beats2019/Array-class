@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1562192367 source:d:\ppi\easyform\array class\main array.cpp
+1562348933 source:d:\ppi\easyform\array class\main array.cpp
 	<iostream>
 	"Array.h"
 
-1562282392 d:\ppi\easyform\array class\include\array.h
+1562348194 d:\ppi\easyform\array class\include\array.h
 	<iostream>
 
-1562282392 source:d:\ppi\easyform\array class\src\array.cpp
+1562348797 source:d:\ppi\easyform\array class\src\array.cpp
 	"Array.h"
 	<iomanip>
 	<iostream>
