@@ -27,17 +27,23 @@ using namespace std;
     }
 
     matrix::matrix( const matrix &arrayToCopy )
-        :array_size( arrayToCopy.array_size )
+        :array_size( arrayToCopy.array_size ) , size_row( arrayToCopy.size_row )
+        ,size_column( arrayToCopy.size_column )
     {
-        cout << "arrayToCopy.array_size= "<<arrayToCopy.array_size << endl;
 
-        /*ptr = new int[ array_size ];
+
+
+        ptr = new int[ array_size ];
+
+
 
         for( int i = 0; i < array_size; ++i )
         {
             ptr[ i ] = arrayToCopy.ptr[ i ];
+
         }
-        */
+
+
 
     }
 
@@ -67,8 +73,7 @@ using namespace std;
             {
                 for ( int j = 0; j < a.size_column; ++j)
                 {
-                    //output << setw( 6 ) << a.ptr[ k ];
-                    output << "a.ptr[ k ] = " << a.ptr[ k ];
+                    output << setw( 6 ) << a.ptr[ k ];
                     k++;
 
                 }

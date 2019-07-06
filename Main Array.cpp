@@ -18,7 +18,7 @@ using namespace std;
             cout << "They are same!";
 
 */
-        //cout << obj3;
+        cout << obj3;
 
 
 
